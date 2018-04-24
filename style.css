@@ -86,3 +86,23 @@ aside{
         font-size: .3rem;
     }
 }
+
+.mask{
+    position: fixed;
+    margin-top: -2rem;
+    font-size: .4rem;
+    border-radius: .2rem;
+    animation: maskAnimate .3s ease-in-out forwards;
+}
+
+@keyframes maskAnimate{
+    from {
+        background: transparent;
+        color: transparent;
+    }
+    to {
+        color: #fff;
+        background: rgba(0,0,0,.6);
+        padding: .2rem .6rem;
+    }
+}

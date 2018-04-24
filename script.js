@@ -20,7 +20,7 @@ function GameOf2048(options) {
 
         let defaultOptions = {
             DELAY_TIME: 210, // 动画延迟时间
-            NUM: 4, // 方块数量
+            NUM: 4, // 方块数量，此属性为可扩展到更大的grid而预留
             BGCOLOR: { // 保存所有背景色
                 2: "#eee4da",
                 4: "#ede0c8",
@@ -272,7 +272,15 @@ GameOf2048.prototype = {
     },
     isGG(){
         if( !this.hasSpace() && !this.canMove() ){
-            alert('游戏结束！得分为：'+ this.score);
+            let hisCellMesg = this._$$hisCell > localStorage.getItem('_$$hisCell') ? '，打破历史最大方块值':'';
+            let hisScoreMesg = this._$$hisScore > localStorage.getItem('_$$hisScore') ? '，打破历史最高分':'';
+
+            let msg =
+            `<div class="mask" id="notice-msg">
+                <p>游戏结束，最后得分：${this.score} ${hisCellMesg}  ${hisScoreMesg}</p>
+            </div>`;
+
+            $('body').append(msg);
 
             localStorage.setItem('_$$hisCell', this._$$hisCell); // 历史最大值
             localStorage.setItem('_$$hisScore', this._$$hisScore); // 历史最高分
@@ -397,6 +405,7 @@ GameOf2048.prototype = {
             });
 
         }else{
+            $('#notice-msg').remove();
             this._$$nums_dom.html('');
             this.score = 0; // 初始化总分
             // 将grid还原
@@ -414,8 +423,3 @@ GameOf2048.prototype = {
         this._$$isInit = false;
     },
 };
-
-
-
-
-
