@@ -1,0 +1,84 @@
+html,body{
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #faf8ef;
+    color: #776e65;
+    font-size: 60px;
+}
+
+@media (max-width: 414px ){
+    html,body{
+        font-size: 40px;
+    }
+}
+@media (max-width: 320px ){
+    html,body{
+        font-size: 36px;
+    }
+}
+
+header{
+    font-size: .4rem;
+    text-align:center;
+}
+button{
+    margin:.16rem auto;
+    padding: .16rem .32rem;
+    color:white;
+    border: 0;
+    border-radius:.16rem;
+    background-color:#8f7a66;
+    cursor: pointer;
+    font-size: inherit;
+    transition: background-color .5s ease-in-out;
+    outline: 0;
+}
+button:hover{
+    background-color:#9f8b77;
+}
+main>.cell-nums,
+main{
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: .32rem;
+    position: relative;
+    margin:0 auto .16rem;
+    padding: .32rem;
+    width: 7.7rem;
+    height: 7.7rem;
+    border-radius: .16rem;
+    background-color: #bbada0;
+}
+main>.cell-nums{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+
+.cell-num,
+.cell{
+    background-color: #ccc0b3;
+    border-radius: .08rem;
+}
+.cell-num{
+    position: relative;
+    height: 1.67rem;
+    width: 1.67rem;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: center;
+    transition: all .4s ease-in-out;
+    /* transition: background-color .4s ease-in-out; */
+    background-color: transparent;
+}
+aside{
+    font-size: .3rem;
+}
